@@ -10,8 +10,10 @@
 </head>
 <body>
 <h1>Pokedex</h1>
-<%data.forEach((pokemon)=>{%>
-    <img src="<%=pokemon.img%>" alt="<%=pokemon.name%>">
-<%})%>
+<% data.forEach((pokemon, index)=>{ %>
+        <a href="http://localhost:3000/<%= index %>">
+            <img src="<%= pokemon.img %>" alt="<%= pokemon.name %>">
+        </a>
+<% }) %>
 </body>
 </html>
