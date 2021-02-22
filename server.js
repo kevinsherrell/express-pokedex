@@ -13,31 +13,31 @@ app.use(express.json());
 
 
 // GET all pokemon
-app.get('/pokemon', (req, res) => {
-    console.log('Get all pokemon');
+app.get('/', (req, res) => {
+    res.render('index', {data: pokemon});
 });
 // GET pokemon by id
-app.get('/pokemon/:id', (req, res) => {
-    console.log('Get pokemon by id');
+app.get('/:id', (req, res) => {
+    res.render('show', {data: pokemon[req.params.id]});
 });
 // GET pokemon form to enter new pokemon data
-app.get('/pokemon/new', (req, res) => {
+app.get('/new', (req, res) => {
     console.log('Create new pokemon');
 });
 // GET pokemon form to edit pokemon data
-app.get('/pokemon/edit', (req, res) => {
+app.get('/edit', (req, res) => {
     console.log('Edit existing pokemon');
 });
 // POST new pokemon data
-app.post('/pokemon', (req, res) => {
+app.post('/', (req, res) => {
     console.log('Post new pokemon');
 });
 // PUT update pokemon data by id
-app.put("/pokemon/:id", (req, res) => {
+app.put("/:id", (req, res) => {
     console.log('update pokemon by id');
 });
 // DELETE delete pokemon by id
-app.delete('/pokemon/:id', (req, res) => {
+app.delete('/:id', (req, res) => {
     console.log('delete pokemon by id');
 });
 
