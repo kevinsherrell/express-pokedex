@@ -8,10 +8,10 @@
     <title>Document</title>
 </head>
 <body>
-<form method="POST" action="/">
+<form method="POST" action="/<%= data.id %>?_method=PUT">
     <input type="text" name="name" placeholder="name">
-    <input type="text" name="name" placeholder="img">
-    <input type="text" name="name" placeholder="type">
+    <input type="text" name="img" placeholder="img">
+    <input type="text" name="type" placeholder="type">
     <input type="submit">
 </form>
 </body>
