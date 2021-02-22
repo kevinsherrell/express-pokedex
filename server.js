@@ -16,21 +16,22 @@ app.use(express.json());
 app.get('/', (req, res) => {
     res.render('index', {data: pokemon});
 });
-// GET pokemon by id
-app.get('/:id', (req, res) => {
-    res.render('show', {data: pokemon[req.params.id]});
-});
 // GET pokemon form to enter new pokemon data
 app.get('/new', (req, res) => {
-    console.log('Create new pokemon');
+    res.render('new');
 });
 // GET pokemon form to edit pokemon data
 app.get('/edit', (req, res) => {
     console.log('Edit existing pokemon');
 });
+// GET pokemon by id
+app.get('/:id', (req, res) => {
+    res.render('show', {data: pokemon[req.params.id]});
+});
 // POST new pokemon data
 app.post('/', (req, res) => {
-    console.log('Post new pokemon');
+    pokemon.push(req.body);
+    res.render('index', {data: pokemon});
 });
 // PUT update pokemon data by id
 app.put("/:id", (req, res) => {
