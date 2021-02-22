@@ -11,7 +11,7 @@
 <body>
 <h1>Pokedex</h1>
 <% data.forEach((pokemon, index)=>{ %>
-        <a href="http://localhost:3000/<%= index %>">
+        <a href="http://localhost:3000/<%= pokemon.id %>">
             <img src="<%= pokemon.img %>" alt="<%= pokemon.name %>">
         </a>
 <% }) %>

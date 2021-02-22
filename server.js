@@ -26,7 +26,15 @@ app.get('/edit', (req, res) => {
 });
 // GET pokemon by id
 app.get('/:id', (req, res) => {
-    res.render('show', {data: pokemon[req.params.id]});
+    let selectedPokemon = pokemon.find(pkmn => {
+        return pkmn.id === req.params.id;
+    })
+    if (selectedPokemon) {
+        res.render('show', {data: selectedPokemon});
+    } else {
+        res.send("pokemon does not exist");
+    }
+    ;
 });
 // POST new pokemon data
 app.post('/', (req, res) => {
@@ -35,12 +43,16 @@ app.post('/', (req, res) => {
 });
 // PUT update pokemon data by id
 app.put("/:id", (req, res) => {
-    console.log('update pokemon by id');
+    // pokemon[req.params.id]['name'] = req.body.name;
+    // pokemon[req.params.id]['type'] = req.body.type;
+    pokemon[req.params.id] = Object.assign(pokemon[req.params.id], req.body);
+    res.send(pokemon[req.params.id]);
 });
 // DELETE delete pokemon by id
 app.delete('/:id', (req, res) => {
     console.log('delete pokemon by id');
 });
+
 
 app.listen(port, () => {
     console.log(`app is listening on port: ${port}`);
